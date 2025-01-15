@@ -8,7 +8,13 @@ st.set_page_config(page_title="Market Share Analysis", layout="wide")
 def load_data(uploaded_file):
     """Load data from an uploaded file."""
     try:
-        df = pd.read_excel(uploaded_file)
+        if uploaded_file.name.endswith('.xlsx'):
+            df = pd.read_excel(uploaded_file)
+        elif uploaded_file.name.endswith('.csv'):
+            df = pd.read_csv(uploaded_file)
+        else:
+            st.error("Unsupported file format. Please upload a .csv or .xlsx file.")
+            return None
         return df
     except Exception as e:
         st.error(f"Error loading file: {str(e)}")
@@ -39,8 +45,8 @@ def main():
     
     # File uploaders
     st.sidebar.header("Upload Data")
-    all_sales_file = st.sidebar.file_uploader("Upload All Sales Data (Excel)", type=["xlsx"])
-    our_sales_file = st.sidebar.file_uploader("Upload Our Sales Data (Excel)", type=["xlsx"])
+    all_sales_file = st.sidebar.file_uploader("Upload All Sales Data (CSV or Excel)", type=["csv", "xlsx"])
+    our_sales_file = st.sidebar.file_uploader("Upload Our Sales Data (CSV or Excel)", type=["csv", "xlsx"])
     
     if all_sales_file and our_sales_file:
         # Load data
