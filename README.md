@@ -26,73 +26,74 @@ You can install the required Python packages using the following command:
 
 ```bash
 pip install streamlit pandas plotly openpyxl
+```
 
 ## Getting Started
 Clone the Repository:
 
 ```bash
-
 git clone https://github.com/your-username/market-share-analysis.git
 cd market-share-analysis
+```
 
-Prepare Your Data:
+## Prepare Your Data:
 Place your sales data in two Excel files:
 all_sales.xlsx: Contains all sales data.
 our_sales.xlsx: Contains our sales data.
 
-Ensure the files have the required columns:
+## Ensure the files have the required columns:
 Offert stängningsdatum: Date of sale.
 Tecknande bolag: Region or category (optional).
-
 Antal offerter: Number of conversions/sales.
 
-Run the App:
+## Run the App:
 Start the Streamlit app by running the following command:
 
-bash
-Copy
+```bash
+
 streamlit run app.py
 The app will open in your default web browser.
+```
 
-Usage
+## Usage
 Upload Data:
-
 Ensure the all_sales.xlsx and our_sales.xlsx files are placed in the Data folder or update the file paths in the code.
 
-Apply Filters:
-
+## Apply Filters:
 Use the sidebar to filter data by date range.
-
 If your data includes additional columns (e.g., product category), you can filter by those as well.
 
-Explore Visualizations:
-
+## Explore Visualizations:
 Navigate through the tabs to view time series charts, bar charts, and performance metrics.
-
 Hover over charts to see detailed tooltips.
 
-View Raw Data:
-
+## View Raw Data:
 The "Performance Metrics" tab includes a table of raw data for further analysis.
 
-Example Data
+## Example Data
 Here’s an example of the expected data format for all_sales.xlsx and our_sales.xlsx:
 
 Offert stängningsdatum	Tecknande bolag	Antal offerter
 2023-01-01	Region A	100
 2023-01-15	Region B	150
 2023-02-01	Region A	200
-Contributing
+
+## File Structure
+market-share-analysis/
+├── app.py                # Main Streamlit app script
+├── README.md             # Project documentation
+├── requirements.txt      # List of Python dependencies
+└── Data/                 # Folder for storing input data files
+    ├── all_sales.xlsx    # Example file for all sales data
+    └── our_sales.xlsx    # Example file for our sales data
+    
+### Contributing
 Contributions are welcome! If you'd like to contribute, please follow these steps:
+- Fork the repository.
+- Create a new branch for your feature or bugfix.
+- Commit your changes.
+- Submit a pull request.
 
-Fork the repository.
-
-Create a new branch for your feature or bugfix.
-
-Commit your changes.
-
-Submit a pull request.
-
-License
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
